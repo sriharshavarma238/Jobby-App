@@ -44,11 +44,11 @@ const JobDetails = () => {
         if (response.ok && data.job) {
           setJob(data.job)
           setHasApplied(data.hasApplied || false)
-          
+
           // Fetch all jobs for similar jobs
           const allJobsResponse = await fetch(API_ENDPOINTS.GET_ALL_JOBS, option)
           const allJobsData = await allJobsResponse.json()
-          
+
           if (allJobsResponse.ok && allJobsData.jobs) {
             const similar = allJobsData.jobs.filter(
               j => j._id !== id && j.employmentType === data.job.employmentType
