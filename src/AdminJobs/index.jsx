@@ -123,10 +123,11 @@ const AdminJobs = () => {
                                         <PiShoppingBagFill />
                                         <span>{job.employmentType}</span>
                                     </div>
+                                    <p className="job-package">{job.packagePerAnnum}</p>
                                 </div>
 
-                                <p className="job-package">{job.packagePerAnnum}</p>
-                                <p className="job-description">{job.jobDescription}</p>
+                                
+                                <p className="admin-job-description">{job.jobDescription}</p>
 
                                 <div className="job-actions">
                                     <button

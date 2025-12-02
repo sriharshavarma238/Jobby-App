@@ -156,6 +156,7 @@
 
 .job-details {
     display: flex;
+    justify-content: space-evenly;
     gap: 24px;
     margin-bottom: 16px;
     flex-wrap: wrap;
@@ -186,9 +187,9 @@
     margin-bottom: 16px;
 }
 
-.job-description {
+.admin-job-description {
     font-size: 15px;
-    color: #475569 !important;
+    color: #0f172a !important;
     line-height: 1.7;
     margin-bottom: 20px;
     display: -webkit-box;
