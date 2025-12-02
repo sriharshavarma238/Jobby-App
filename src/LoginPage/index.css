@@ -44,12 +44,23 @@
 
 .login-website-logo-desktop-img {
   width: 185px;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 991px) {
   .login-website-logo-desktop-img {
-    display: none;
+    display: block;
+    margin-bottom: 20px;
   }
+}
+
+.login-heading {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .form-container {
@@ -121,7 +132,7 @@
   width: 100%;
   margin-top: 20px;
   margin-bottom: 2px;
-  background-color:blue;
+  background-color: blue;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -137,4 +148,48 @@
   font-size: 12px;
   line-height: 16px;
   color: #ff0b37;
+}
+
+.toggle-mode {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.toggle-mode p {
+  color: #94a3b8;
+  font-size: 14px;
+  margin: 0;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+  padding: 0;
+  margin-left: 4px;
+}
+
+.toggle-button:hover {
+  color: #2563eb;
+}
+
+.back-to-start-button {
+  background: transparent;
+  border: 1px solid #475569;
+  color: #94a3b8;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 16px;
+  transition: all 0.3s ease;
+}
+
+.back-to-start-button:hover {
+  border-color: #64748b;
+  color: #cbd5e1;
 }

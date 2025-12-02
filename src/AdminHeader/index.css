@@ -1,0 +1,43 @@
+.admin-nav-header {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    border-bottom: none;
+}
+
+.admin-nav-header .nav-content {
+    color: #ffffff;
+}
+
+.admin-nav-header .website-logo {
+    filter: brightness(0) invert(1);
+}
+
+.admin-nav-header .nav-menu {
+    color: #ffffff;
+}
+
+.admin-nav-header .nav-menu-item {
+    color: #ffffff;
+}
+
+.admin-nav-header .nav-menu-item:hover {
+    color: #e0e7ff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-nav-header .nav-menu-mobile-item {
+    color: #ffffff;
+}
+
+.admin-nav-header .logout-desktop-btn {
+    background-color: #ffffff;
+    color: #8b5cf6;
+}
+
+.admin-nav-header .logout-desktop-btn:hover {
+    background-color: #f3f4f6;
+    color: #7c3aed;
+}
+
+.admin-nav-header .nav-mobile-btn {
+    color: #ffffff;
+}

@@ -10,19 +10,27 @@
   margin: 40px auto 0 auto;
   background: #272727;
   border-radius: 8px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
   padding: 24px 20px;
 }
 
 .job-item {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #272727;
+  padding: 24px !important;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background-color: #1e293b;
   margin: 10px 0;
   width: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.job-item:hover {
+  border-color: #475569;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
 }
 
 .job-item-header {
@@ -48,24 +56,31 @@
 }
 
 .job-title {
-  color: white;
+  color: #f1f5f9 !important;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0 0 6px 0;
 }
 
 .job-rating {
-  color: white;
+  color: #e2e8f0 !important;
   align-self: flex-start;
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   align-items: center;
+  gap: 8px;
   margin: 0;
+  font-weight: 600;
+}
+
+.job-rating span {
+  line-height: 1;
 }
 
 .star-icon {
-  color: gold;
-  margin-right: 2px;
+  color: #fbbf24 !important;
+  font-size: 18px;
+  margin-bottom: 2px;
 }
 
 .job-item-details {
@@ -83,9 +98,10 @@
 
 .job-location,
 .job-employment-type {
-  color: #e2e8f0;
+  color: #cbd5e1 !important;
   font-size: 1rem;
   margin: 0 10px 0 0;
+  font-weight: 500;
 }
 
 .loc {
@@ -98,8 +114,8 @@
 }
 
 .job-package {
-  color: #0ea5e9;
-  font-weight: 600;
+  color: #10b981 !important;
+  font-weight: 700;
   font-size: 1.1rem;
   margin: 0;
 }
@@ -130,9 +146,10 @@
 }
 
 .job-description {
-  color: #e2e8f0;
+  color: white !important;
   font-size: 1.05rem;
   margin: 14px 0 24px 0;
+  line-height: 1.6;
 }
 
 .job-skills-heading {
@@ -166,7 +183,7 @@
   border-radius: 8px;
   padding: 10px 16px;
   min-width: 90px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
 
 .skill-image {
@@ -213,15 +230,18 @@
   .job-details-container {
     padding: 18px 6px;
   }
+
   .job-item-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
+
   .job-skills {
     flex-direction: column;
     gap: 18px;
   }
+
   .life-at-company {
     margin-left: 0;
   }

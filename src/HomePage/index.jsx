@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
 import Header from "../Header"
 import Cookies from 'js-cookie'
@@ -6,9 +6,17 @@ import './index.css'
 
 const Home = () => {
   const jwtToken = Cookies.get('jwt_token')
+  const userType = Cookies.get('user_type')
+
   if (jwtToken === undefined) {
     return <Navigate to="/" replace />
   }
+
+  // Redirect admin to admin dashboard
+  if (userType === 'admin') {
+    return <Navigate to="/admin/dashboard" replace />
+  }
+
   return (
     <div className="bg-container">
       <Header />

@@ -1,0 +1,94 @@
+.start-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.start-page-content {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 60px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.start-page-logo {
+    width: 180px;
+    margin-bottom: 30px;
+}
+
+.start-page-heading {
+    color: #1e293b;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.start-page-description {
+    color: #475569;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.start-page-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.start-page-button {
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.user-button {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+.user-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+}
+
+.admin-button {
+    background-color: #8b5cf6;
+    color: #ffffff;
+}
+
+.admin-button:hover {
+    background-color: #7c3aed;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(139, 92, 246, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .start-page-content {
+        padding: 40px 24px;
+    }
+
+    .start-page-heading {
+        font-size: 24px;
+    }
+
+    .start-page-description {
+        font-size: 14px;
+    }
+
+    .start-page-logo {
+        width: 140px;
+    }
+}

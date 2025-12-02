@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import JobItem from '../JobItem';
 import Cookies from 'js-cookie';
 import Header from '../Header';
 import BeatLoader from 'react-spinners/BeatLoader';
+import { API_ENDPOINTS } from '../config/api';
+import { FaUser } from 'react-icons/fa';
 import './index.css';
 
 const employmentTypes = [
@@ -30,6 +32,8 @@ const JobsPage = ({ onJobClick }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+
+    console.log(Cookies.get('jwt_token'))
     const option = {
       method: 'GET',
       headers: {
@@ -41,13 +45,19 @@ const JobsPage = ({ onJobClick }) => {
       setIsLoading(true);
       try {
         const [profileRes, jobsRes] = await Promise.all([
-          fetch('https://apis.ccbp.in/profile', option),
-          fetch('https://apis.ccbp.in/jobs', option),
+          fetch(API_ENDPOINTS.GET_PROFILE, option),
+          fetch(API_ENDPOINTS.GET_ALL_JOBS, option),
         ]);
         const profile = await profileRes.json();
         const jobs = await jobsRes.json();
-        setProfileData(profile.profile_details);
-        setAllJobs(jobs.jobs);
+        // Backend returns: { profileImageUrl, name, shortBio }
+        setProfileData({
+          profile_image_url: profile.profileImageUrl,
+          name: profile.name,
+          short_bio: profile.shortBio
+        });
+        // Backend returns: { jobs: [...] }
+        setAllJobs(jobs.jobs || []);
       } catch (error) {
         console.error('Failed to fetch data', error);
       }
@@ -74,14 +84,14 @@ const JobsPage = ({ onJobClick }) => {
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
   };
-  console.log(selectedTypes, allJobs.map(j => j.employment_type))
+  console.log(selectedTypes, allJobs.map(j => j.employmentType))
   // Filter logic
   const filteredJobs = allJobs.filter(job => {
     const matchesType =
-      selectedTypes.length === 0 || selectedTypes.includes(job.employment_type);
+      selectedTypes.length === 0 || selectedTypes.includes(job.employmentType);
 
     // Salary filter (parse "10 LPA" to 10)
-    const jobSalary = parseInt(job.package_per_annum.replace(/\D/g, ''));
+    const jobSalary = parseInt((job.packagePerAnnum || '').replace(/\D/g, ''));
     const matchesSalary =
       !selectedSalary || (jobSalary >= selectedSalary);
 
@@ -103,17 +113,25 @@ const JobsPage = ({ onJobClick }) => {
       <div className="jobs-page">
         <div className="jobs-header">
           <div className="jobs-header-content">
-            <div className="profile-info">
-              <img src={profileData.profile_image_url} alt="Profile" />
-              <p style={{color:"black"}}>{profileData.name}</p>
-              <p style={{color:"black"}}>{profileData.short_bio}</p>
-            </div>
+            <Link to="/profile" className="profile-info-link">
+              <div className="profile-info">
+                {profileData.profile_image_url ? (
+                  <img src={profileData.profile_image_url} alt="Profile" className="profile-image" />
+                ) : (
+                  <div className="profile-placeholder">
+                    <FaUser size={40} color="#cbd5e1" />
+                  </div>
+                )}
+                <p className="profile-name">{profileData.name || 'User'}</p>
+                <p className="profile-bio">{profileData.short_bio || 'No bio available'}</p>
+              </div>
+            </Link>
           </div>
           <div className="filter">
-            <h2 style={{textAlign:"left"}}>Type of Employment</h2>
-            <ul style={{ padding: '15px', listStyleType:"none"}}>
+            <h2 style={{ textAlign: "left" }}>Type of Employment</h2>
+            <ul style={{ padding: '15px', listStyleType: "none" }}>
               {employmentTypes.map(type => (
-                <li key={type.value} style={{textAlign:"left"}}>
+                <li key={type.value} style={{ textAlign: "left" }}>
                   <input
                     type="checkbox"
                     value={type.value}
@@ -125,8 +143,8 @@ const JobsPage = ({ onJobClick }) => {
               ))}
             </ul>
             <hr className="line" />
-            <h2 style={{textAlign:"left"}}>Salary range</h2>
-            <ul style={{ padding: '15px', listStyleType:"none", textAlign:"left"}}>
+            <h2 style={{ textAlign: "left" }}>Salary range</h2>
+            <ul style={{ padding: '15px', listStyleType: "none", textAlign: "left" }}>
               {salaryRanges.map((range) => (
                 <li key={range.value}>
                   <input
