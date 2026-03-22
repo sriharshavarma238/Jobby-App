@@ -49,7 +49,7 @@
 
 .applications-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
 }
 
@@ -195,11 +195,19 @@
 }
 
 @media screen and (max-width: 768px) {
+    .applications-content {
+        padding: 24px 12px;
+    }
+
     .applications-list {
         grid-template-columns: 1fr;
     }
 
     .applications-heading {
         font-size: 24px;
+    }
+
+    .application-card {
+        padding: 18px;
     }
 }

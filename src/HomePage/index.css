@@ -4,17 +4,19 @@
   background-repeat: no-repeat;
   min-height: 100vh;
 }
+
 .home-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
-  padding-top: 10px;
+  padding-top: 24px;
   padding-bottom: 50px;
-  width: 90%;
+  width: min(92%, 1110px);
   max-width: 1110px;
 }
+
 .home-content-container {
   display: flex;
   align-items: center;
@@ -32,13 +34,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 100%;
+  max-width: 640px;
   color: white;
 }
 
 @media screen and (min-width: 768px) {
   .home-content {
     align-items: flex-start;
+    width: 55%;
   }
 }
 
@@ -68,7 +72,7 @@
   font-family: 'Roboto';
   font-weight: bold;
   margin-top: 0px;
-  font-size: 36px;
+  font-size: clamp(1.85rem, 5.5vw, 2.85rem);
 
   text-align: center;
 }
@@ -83,7 +87,7 @@
 .home-description {
   font-family: 'Roboto';
   margin-top: 36px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 28px;
   margin-bottom: 0;
   text-align: center;
@@ -98,7 +102,8 @@
 }
 
 .shop-now-button {
-  width: 60%;
+  width: 100%;
+  max-width: 260px;
   font-size: 14px;
   font-weight: 400;
   font-family: 'Roboto';
@@ -115,5 +120,17 @@
   .shop-now-button {
     width: 150px;
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-container {
+    width: 94%;
+    padding-top: 18px;
+  }
+
+  .home-description {
+    line-height: 1.7;
+    margin-top: 18px;
   }
 }

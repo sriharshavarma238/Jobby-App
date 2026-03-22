@@ -3,11 +3,18 @@
     flex-direction: row;
     background-color: black;
     gap: 40px;
-    /* Use px for consistent spacing */
-    width: 80vw;
+    width: min(100%, 1280px);
     min-height: 100vh;
     box-sizing: border-box;
-    padding: 20px 0;
+    padding: 20px 16px 32px;
+    margin: 0 auto;
+}
+
+.jobs-header {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .profile-info-link {
@@ -21,13 +28,13 @@
 }
 
 .profile-info {
-    flex: 0 0 320px;
+    flex: 0 0 auto;
     width: 100%;
     background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin: 0 0 0 20px;
+    margin: 0;
     text-align: center;
     min-height: 260px;
     height: auto;
@@ -87,7 +94,7 @@
 }
 
 .jobs-header-content {
-    width: 22vw;
+    width: 100%;
 }
 
 .search-bar-container {
@@ -290,7 +297,8 @@
 
 .jobsList {
     flex: 1;
-    padding: 0 20px;
+    padding: 0;
+    min-width: 0;
 }
 
 .search-input {
@@ -315,4 +323,49 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+@media screen and (max-width: 991px) {
+    .jobs-page {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 16px 12px 24px;
+    }
+
+    .jobs-header {
+        flex: 1 1 auto;
+    }
+
+    .filter {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .jobsList {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .job-item {
+        padding: 18px;
+    }
+
+    .job-item-header {
+        align-items: flex-start;
+    }
+
+    .job-title {
+        font-size: 1.15rem;
+    }
+
+    .employment-type,
+    .salary-range {
+        margin-left: 0;
+    }
+
+    .search-input {
+        max-width: 100%;
+    }
 }

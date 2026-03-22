@@ -84,7 +84,7 @@
 
 .admin-jobs-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
 }
 
@@ -249,6 +249,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .admin-jobs-content {
+        padding: 24px 12px;
+    }
+
     .admin-jobs-list {
         grid-template-columns: 1fr;
     }
@@ -260,5 +264,15 @@
 
     .create-job-btn {
         width: 100%;
+    }
+
+    .job-actions {
+        flex-wrap: wrap;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        flex: 1 1 140px;
+        justify-content: center;
     }
 }

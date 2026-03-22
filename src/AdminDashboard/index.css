@@ -178,3 +178,36 @@
         width: 100%;
     }
 }
+
+@media screen and (max-width: 575px) {
+    .admin-dashboard-content {
+        padding: 20px 12px;
+    }
+
+    .dashboard-heading {
+        font-size: 20px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stat-card {
+        padding: 20px 16px;
+    }
+
+    .stat-number {
+        font-size: 32px;
+    }
+
+    .recent-jobs-section,
+    .quick-actions {
+        padding: 20px 14px;
+    }
+
+    .recent-jobs-section h2,
+    .quick-actions h2 {
+        font-size: 18px;
+    }
+}

@@ -3,11 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 80vw;
-  max-width: 1110px;
+  min-height: 100vh;
+  width: min(100%, 1110px);
+  padding: 24px 16px;
   margin: auto;
-  background-color: black
+  background-color: black;
 }
 
 @media screen and (min-width: 992px) {
@@ -70,7 +70,7 @@
   padding: 20px;
   border-radius: 8px;
   width: 100%;
-  max-width: 350px;
+  max-width: 420px;
   background-color: #272727;
 }
 
@@ -192,4 +192,26 @@
 .back-to-start-button:hover {
   border-color: #64748b;
   color: #cbd5e1;
+}
+
+@media screen and (max-width: 575px) {
+  .login-form-container {
+    justify-content: flex-start;
+    padding: 16px 12px 28px;
+  }
+
+  .form-container {
+    max-width: 100%;
+    padding: 18px 14px;
+  }
+
+  .login-heading {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .login-button,
+  .back-to-start-button {
+    min-height: 42px;
+  }
 }

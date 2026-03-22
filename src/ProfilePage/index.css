@@ -105,7 +105,7 @@
 }
 
 .profile-name-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     font-weight: 700;
     margin-bottom: 12px;
     color: #ffffff;
@@ -113,7 +113,7 @@
 }
 
 .profile-bio-text {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
     line-height: 1.6;
     margin-bottom: 20px;
     color: #e0e7ff;
@@ -304,19 +304,73 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .profile-page-container {
-        padding: 20px 10px;
+        padding: 24px 12px;
     }
 
     .profile-card-header {
         flex-direction: column;
         text-align: center;
-        padding: 30px 20px;
+        padding: 28px 20px;
+        gap: 20px;
     }
 
     .profile-avatar-large,
     .profile-avatar-placeholder-large {
         width: 120px;
         height: 120px;
+    }
+
+    .profile-header-details {
+        flex: 1;
+    }
+
+    .edit-profile-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .profile-details-section,
+    .profile-edit-section {
+        padding: 24px 16px;
+    }
+}
+
+@media (max-width: 575px) {
+    .profile-page-container {
+        padding: 16px 8px;
+        min-height: auto;
+    }
+
+    .profile-card-header {
+        padding: 20px 14px;
+        gap: 16px;
+    }
+
+    .profile-avatar-large,
+    .profile-avatar-placeholder-large {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-header-details {
+        text-align: center;
+    }
+
+    .profile-name-title {
+        font-size: 1.4rem;
+    }
+
+    .profile-bio-text {
+        font-size: 0.95rem;
+    }
+
+    .profile-details-section,
+    .profile-edit-section {
+        padding: 18px 12px;
+    }
+
+    .profile-info-grid {
+        gap: 16px;
     }
 
     .profile-name-title {
