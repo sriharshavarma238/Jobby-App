@@ -1,6 +1,5 @@
 // API Configuration
-// TODO: Replace with your deployed backend URL after deployment
-const API_BASE_URL = 'https://jobby-server-delta.vercel.app'; // Change this to your deployed backend URL
+const API_BASE_URL = 'https://jobby-server-delta.vercel.app'; 
 
 export const API_ENDPOINTS = {
     // User Auth

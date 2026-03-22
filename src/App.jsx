@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import StartPage from './StartPage';
 import LoginPage from './LoginPage';
@@ -11,22 +11,24 @@ import AdminDashboard from './AdminDashboard';
 import CreateJob from './CreateJob';
 import EditJob from './EditJob';
 import AdminJobs from './AdminJobs';
+import NotFound from './NotFound';
+import ProtectedRoute from './ProtectedRoute';
 import './App.css';
 
 const App = () => (
   <Routes>
     <Route path="/" element={<StartPage />} />
     <Route path="/login/:userType" element={<LoginPage />} />
-    <Route path="/home" element={<HomePage />} />
-    <Route path="/jobs" element={<JobsPage />} />
-    <Route path="/jobs/:id" element={<JobDetails />} />
-    <Route path="/applications" element={<Applications />} />
-    <Route path="/profile" element={<ProfilePage />} />
+    <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
+    <Route path="/jobs" element={<ProtectedRoute><JobsPage /></ProtectedRoute>} />
+    <Route path="/jobs/:id" element={<ProtectedRoute><JobDetails /></ProtectedRoute>} />
+    <Route path="/applications" element={<ProtectedRoute><Applications /></ProtectedRoute>} />
+    <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
     <Route path="/admin/dashboard" element={<AdminDashboard />} />
     <Route path="/admin/create-job" element={<CreateJob />} />
     <Route path="/admin/edit-job/:jobId" element={<EditJob />} />
     <Route path="/admin/jobs" element={<AdminJobs />} />
-    {/* <Route path="*" element={<NotFound />} /> */}
+    <Route path="*" element={<NotFound />} />
   </Routes>
 );
 
